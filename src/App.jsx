@@ -343,12 +343,12 @@ function Footer() {
       <div className="grid grid-cols-1 gap-2.5 text-xs text-primary-fixed-dim">
         <div className="flex items-start gap-2">
           <Icon n="location_on" cls="text-secondary-fixed text-[18px]" />
-          <span><strong>Haridwar Office:</strong> Near Har Ki Pauri Ghat, Main Bypass Road, Haridwar, Uttarakhand - 249401</span>
+          <span><strong>Haridwar Office:</strong> Jwalapur,haridwar, Uttarakhand 249407</span>
         </div>
-        <div className="flex items-start gap-2">
+        {/* <div className="flex items-start gap-2">
           <Icon n="location_on" cls="text-secondary-fixed text-[18px]" />
           <span><strong>Rishikesh Office:</strong> Tapovan Chowk, Badrinath Road, Rishikesh, Uttarakhand - 249192</span>
-        </div>
+        </div> */}
         <div className="flex items-center gap-2 pt-1">
           <Icon n="call" cls="text-[#25D366] text-[18px]" />
           <a className="text-white hover:underline font-bold text-sm" href="tel:+918218590675">+91 82185 90675</a>
