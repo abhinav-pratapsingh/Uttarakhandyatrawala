@@ -1,4 +1,5 @@
 import { useState } from "react";
+import logo from "./assets/logo.jpeg";
 
 const NUMBER = "918218590675";
 const BRAND = "Uttarakhand Yatra Wala";
@@ -67,23 +68,60 @@ const Icon = ({ n, cls = "", filled }) => (
 
 function Header() {
   return (
-    <header className="fixed top-0 w-full z-50 pt-[env(safe-area-inset-top,0px)] bg-surface/95 backdrop-blur-xl shadow-sm border-b border-outline-variant/20">
-      <div className="h-16 flex items-center justify-between px-margin">
-        <a className="flex items-center gap-2" href="#">
-          <img alt={`${BRAND} Logo`} className="h-9 w-auto object-contain" src={LOGO} />
-          <div className="flex flex-col">
-            <span className="font-headline-sm text-[1.05rem] text-primary leading-tight font-bold">{BRAND}</span>
-            <span className="text-[11px] text-on-surface-variant font-medium">uttarakhandyatrawala.in</span>
+    <header className="fixed top-0 left-0 right-0 w-full z-50 pt-[env(safe-area-inset-top,0px)] bg-surface/95 backdrop-blur-xl shadow-sm border-b border-outline-variant/20">
+      <div className="h-14 sm:h-16 flex items-center justify-between px-3 sm:px-margin gap-2">
+
+        {/* Logo + Brand */}
+        <a
+          className="flex items-center gap-2 min-w-0 shrink"
+          href="#"
+        >
+          <img
+            alt={`${BRAND} Logo`}
+            className="h-8 sm:h-9 w-auto max-w-[42px] sm:max-w-none object-contain shrink-0"
+            src={logo}
+          />
+
+          {/* Brand text - hidden on very small screens */}
+          <div className="hidden xs:flex sm:flex flex-col min-w-0">
+            <span className="font-headline-sm text-[0.95rem] sm:text-[1.05rem] text-primary leading-tight font-bold truncate">
+              {BRAND}
+            </span>
+
+            <span className="text-[10px] sm:text-[11px] text-on-surface-variant font-medium truncate">
+              uttarakhandyatrawala.in
+            </span>
           </div>
         </a>
-        <div className="flex items-center gap-2">
-          <a aria-label="Call Helpline" href="tel:+918218590675" className="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container text-primary hover:bg-surface-container-high transition-colors">
-            <Icon n="call" cls="text-[19px]" />
+
+        {/* Actions */}
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+
+          {/* Call */}
+          <a
+            aria-label="Call Helpline"
+            href="tel:+918218590675"
+            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center bg-surface-container text-primary hover:bg-surface-container-high active:scale-95 transition-all"
+          >
+            <Icon n="call" cls="text-[18px] sm:text-[19px]" />
           </a>
-          <a aria-label="WhatsApp Instant Chat" href={`https://wa.me/${NUMBER}`} target="_blank" rel="noopener noreferrer" className="h-10 px-3 rounded-full flex items-center gap-1.5 bg-[#25D366] text-white text-xs font-semibold shadow-sm hover:brightness-105 active:scale-95 transition-all">
+
+          {/* WhatsApp */}
+          <a
+            aria-label="WhatsApp Instant Chat"
+            href={`https://wa.me/${NUMBER}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="h-9 w-9 sm:h-10 sm:w-auto sm:px-3 rounded-full flex items-center justify-center sm:gap-1.5 bg-[#25D366] text-white text-xs font-semibold shadow-sm hover:brightness-105 active:scale-95 transition-all"
+          >
             <Icon n="chat" cls="text-[18px]" />
-            <span>WhatsApp</span>
+
+            {/* Text only on tablet/desktop */}
+            <span className="hidden sm:inline">
+              WhatsApp
+            </span>
           </a>
+
         </div>
       </div>
     </header>
@@ -281,12 +319,25 @@ function WhyUs() {
 
 function Footer() {
   return (
-    <footer id="contact" className="mt-8 bg-primary text-on-primary px-margin py-8 flex flex-col gap-5 border-t border-primary-container">
+    <footer
+      id="contact"
+      className="mt-8 bg-primary text-on-primary px-margin py-8 flex flex-col gap-5 border-t border-primary-container"
+    >
       <div className="flex items-center gap-3">
-        <img alt={`${BRAND} Logo`} className="h-8 w-auto object-contain brightness-0 invert" src={LOGO} />
+        <img
+          alt={`${BRAND} Logo`}
+          className="h-9 sm:h-10 w-auto max-w-[180px] object-contain"
+          src={logo}
+        />
+
         <div className="flex flex-col">
-          <span className="font-headline-sm text-base text-white font-bold">{BRAND}</span>
-          <span className="text-xs text-primary-fixed-dim">uttarakhandyatrawala.in</span>
+          <span className="font-headline-sm text-base text-white font-bold">
+            {BRAND}
+          </span>
+
+          <span className="text-xs text-primary-fixed-dim">
+            uttarakhandyatrawala.in
+          </span>
         </div>
       </div>
       <div className="grid grid-cols-1 gap-2.5 text-xs text-primary-fixed-dim">
@@ -315,7 +366,7 @@ export default function App() {
   return (
     <div className="bg-surface text-on-surface font-body-md flex flex-col min-h-screen relative">
       <Header />
-      <main className="flex flex-col w-full pt-16 pb-12 bg-surface min-h-screen">
+      <main className="flex flex-col w-full pt-14 sm:pt-16 pb-12 bg-surface min-h-screen">
         <Hero />
         <Packages />
         <EnquiryForm />
